@@ -37,8 +37,8 @@ const words = aString.split(' ');
 console.log('Words: ', words);
 
 //how many words in my string?
-//const howManyWords =aString.split(' ').length;
-//consol.log ('how many words; ', howManyWords);
+const howManyWords =words.length;
+console.log ('how many words; ', howManyWords);
 
 //What are the number of words in the string?
 const numberOfWords = aString.split(' ').length;
@@ -51,21 +51,39 @@ console.log ('Number of spaces: ', numberOfSpaces);
 
 //what is the longest word in the string?
 const startingWords = aString.split(' ');
+//console.log('startingWords is: ',startingWords)
 const lengthOfWords = startingWords.map(word => word.length);
-console.log(startingWords);
-
+//console.log('lengthOfWords is: ',lengthOfWords);
+const maximumWordLength = max(lengthOfWords);
+//console.log('maximumWordLength is: ',maximumWordLength);
+const whereIsTheMax = lengthOfWords.indexOf(maximumWordLength);
+//console.log('where is the max: ', whereIsTheMax);
+console.log('longest string: ',startingWords[whereIsTheMax]);
+ 
 function max(listOfNums){
   let maximum = listOfNums[0];
+  for(let num of listOfNums){
+    if(num > maximum){
+      maximum = num;
+    }
+  }
+  return maximum;
 }
 
 //How do I reverse a string>=?
 //NOT A SPACE in the spit@ NOT A SPACE!
+//const splitString = aString.split('');
+//console.log ('splitstring is: ',splitString);
 const reverseString = aString.split('').reverse().join('');
-console.log(reverseString);
+console.log('Reverse string',reverseString);
 
 //Alternative
-//const arr = [];
-//for (let i=aString.length; i>=o; i-=1){
-//  arr.push(aString[i]);
-//}
-//console.log(arr.join(''));
+const arr = [];
+//console.log('last letter is: ',aString[aString.length]);
+
+for (let i=aString.length - 1; i>=0; i -= 1){
+  //console.log('i is: ',i);
+  //console.log('aString[i] is: ',aString[i]);
+  arr.push(aString[i]);
+}
+console.log('alternative way for reverse: ',arr.join(''));
